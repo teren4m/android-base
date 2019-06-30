@@ -8,9 +8,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import java.util.concurrent.atomic.AtomicBoolean
 
-open class SingleLiveEvent<T> : MutableLiveData<T>() {
+open class SingleLiveData<T> : MutableLiveData<T>() {
 
-    private val TAG = "SingleLiveEvent"
+    private val TAG = "SingleLiveData"
 
     private val mPending = AtomicBoolean(false)
 

@@ -6,7 +6,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
-private val defaultThreadScheduler: Scheduler = Schedulers.computation()
+private val defaultThreadScheduler: Scheduler = Schedulers.io()
 
 fun <T> Single<T>.observeOnMain(): Single<T> =
     this.observeOn(AndroidSchedulers.mainThread())
