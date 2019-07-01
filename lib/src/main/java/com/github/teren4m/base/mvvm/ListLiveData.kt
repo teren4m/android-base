@@ -12,21 +12,21 @@ class ListLiveData<T : Any> @JvmOverloads constructor(initialCapacity: Int = 100
     fun add(items: List<T>) {
         getList().apply {
             addAll(items)
-            setValue(value)
+            postValue(value)
         }
     }
 
     fun add(item: T) {
         getList().apply {
             add(item)
-            setValue(value)
+            postValue(value)
         }
     }
 
     fun clear() {
         getList().apply {
             clear()
-            setValue(value)
+            postValue(value)
         }
     }
 
