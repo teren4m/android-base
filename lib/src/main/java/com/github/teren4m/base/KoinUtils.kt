@@ -18,7 +18,7 @@ inline fun <reified T : Any> Fragment.injectFragment() =
         parametersOf(this@injectFragment)
     }
 
-inline fun <reified T> ComponentCallbacks.getObject(vararg args: Any): T =
+inline fun <reified T : Any> ComponentCallbacks.getObject(vararg args: Any): T =
     get {
         parametersOf(args)
     }
