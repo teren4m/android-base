@@ -1,4 +1,6 @@
 package com.github.teren4m.base
 
-class App : BaseApp() {
+import androidx.multidex.MultiDexApplication
+
+class App : MultiDexApplication() {
 }

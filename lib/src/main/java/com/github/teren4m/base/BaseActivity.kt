@@ -3,28 +3,21 @@ package com.github.teren4m.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
-import javax.inject.Inject
+import org.koin.android.ext.android.get
 
-abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
+abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val toolbarId: Int
-    abstract val layoutId: Int
+    protected abstract val toolbarId: Int
+    protected abstract val layoutId: Int
 
-    lateinit var toolbar: Toolbar
-
-    @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
+    protected val toolbar: Toolbar by lazy { findViewById<Toolbar>(toolbarId) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        inject()
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
-        toolbar = findViewById(toolbarId)
         setSupportActionBar(toolbar)
+
+        val some: String = get()
     }
 
-    override fun supportFragmentInjector() = fragmentInjector
 }
