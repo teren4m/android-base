@@ -3,11 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.teren4m'
-version = '1.0.8'
+version = '1.0.9'
 
 android {
-    compileSdkVersion 29
 
+    packagingOptions {
+        exclude 'META-INF/main.kotlin_module'
+    }
+
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
@@ -20,7 +24,7 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     api 'com.android.support:multidex:1.0.3'
 
